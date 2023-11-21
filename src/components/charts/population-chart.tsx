@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement, ReactNode, useEffect, useState, type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import {
@@ -20,15 +20,15 @@ import {
   type PopulationRequest,
 } from '@/lib/validations/population'
 
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import {
   Form,
   FormControl,
   FormItem,
   FormLabel,
   UncontrolledFormMessage,
-} from './ui/form'
-import { Input } from './ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 
 interface IData {
   x: number
@@ -45,42 +45,14 @@ interface CustomTooltipProps {
 
 const CustomTooltip: FC<CustomTooltipProps> = (props) => {
   const { active, payload, label } = props
-  // console.log(props);
 
   if (active && payload && payload.length) {
-    // console.log(payload[0])
-
     return (
       <div className="p-3 dark:border dark:border-slate-300 dark:bg-background">
-        <p style={{ color: payload[0].stroke }}>
-          {`Población : ${payload[0].value}`}
+        <p style={{ color: payload[0]?.stroke }}>
+          {`Población : ${payload[0]?.value}`}
         </p>
         <p>{`Fecha : ${label}`}</p>
-      </div>
-    )
-  }
-
-  return null
-}
-
-interface CustomLeyendProps {
-  payload?: { value: string; stroke: string }[]
-  label?: string
-}
-
-const CustomLegend: FC<CustomLeyendProps> = (props) => {
-  const { payload, label } = props
-  console.log(props)
-
-  if (payload && payload.length) {
-    // console.log(payload[0])
-
-    return (
-      <div className="p-3 dark:border dark:border-slate-300 dark:bg-background">
-        <p style={{ color: payload[0].stroke }}>
-          {`Población : ${payload[0].value}`}
-        </p>
-        <p>{`Años : ${label}`}</p>
       </div>
     )
   }
@@ -109,11 +81,6 @@ export const PopulationChart: FC = () => {
   }
 
   useEffect(() => {
-    // const period = {
-    //   timeTo: newDate(timeTo),
-    //   timeFrom: newDate(timeFrom),
-    // }
-    // const tf = period.timeFrom.diff(period.timeTo, 'years')
     const tf = timeFrom - timeTo
     console.log({ tf })
 
@@ -126,9 +93,6 @@ export const PopulationChart: FC = () => {
       result.push({
         x: i,
         date: `01-01-${timeTo + i}`,
-        // date: `${period.timeTo.date()}-${period.timeTo.month() + 1}-${
-        //   period.timeTo.year() + i
-        // }`,
         logistic: decimalAdjust(y, 3),
         exponential: decimalAdjust(y2, 3),
       })
@@ -283,10 +247,6 @@ export const PopulationChart: FC = () => {
     </section>
   )
 }
-
-// const getPoblation = (t: number = 0) => {
-//   return 210000 / (1 + 34 * Math.exp(-0.012 * t))
-// }
 
 interface LogisticModelProps {
   p0: number

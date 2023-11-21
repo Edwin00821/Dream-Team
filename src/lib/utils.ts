@@ -1,5 +1,7 @@
+import { env } from '@/env.mjs'
 import { clsx, type ClassValue } from 'clsx'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
+import es from 'dayjs/locale/es'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -9,11 +11,27 @@ export function cn(...inputs: ClassValue[]) {
 type IDate = Date | string | number
 
 export const formatDate = (date: IDate) => {
-  return dayjs(date).format('MMMM D, YYYY')
+  return dayjs(date).locale(es).format('D MMMM, YYYY')
 }
 
 export const newDate = (date: IDate) => {
   return dayjs(date)
+}
+
+export const slugify = (str: string) => {
+  return str
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+}
+
+export const truncate = (str: string, length: number) => {
+  return str.length > length ? `${str.substring(0, length)}...` : str
+}
+
+export const absoluteUrl = (path: string) => {
+  return `${env.NEXT_PUBLIC_APP_URL}${path}`
 }
 
 // export function formatDate(date: IDate) {

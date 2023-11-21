@@ -1,4 +1,3 @@
-import { type Dayjs } from 'dayjs'
 import { z } from 'zod'
 
 export const PopulationValidator = z.object({

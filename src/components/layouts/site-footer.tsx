@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
-// import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 import { Icons } from '@/components/icons'
 import { ThemeToggle } from '@/components/layouts/theme-toggle'
 import { Shell } from '@/components/shells/shell'
@@ -38,30 +37,39 @@ export function SiteFooter() {
                 <ul className="space-y-3">
                   {item.items.map((link) => (
                     <li key={link.title}>
-                      <Link
-                        href={link.href}
-                        target={link?.external ? '_blank' : undefined}
-                        rel={link?.external ? 'noreferrer' : undefined}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {link.title}
-                        <span className="sr-only">{link.title}</span>
-                      </Link>
+                      {link.href ? (
+                        <Link
+                          href={link.href}
+                          target={link?.external ? '_blank' : undefined}
+                          rel={link?.external ? 'noreferrer' : undefined}
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {link.title}
+                          <span className="sr-only">{link.title}</span>
+                        </Link>
+                      ) : (
+                        <p className={`text-sm text-muted-foreground`}>
+                          <span
+                            style={{
+                              display: 'block',
+                              whiteSpace: 'nowrap',
+                              borderRight: '2px solid',
+                              overflow: 'hidden',
+                              width: `${Number(link.title.length)}ch`,
+                              // animation: `typing 2s steps(${link.title.length}) ease-out infinite alternate, blink 0.5s infinite step-end alternate`,
+                            }}
+                          >
+                            {link.title}
+                          </span>
+
+                          <span className="sr-only">{link.title}</span>
+                        </p>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-          </section>
-          <section
-            id="newsletter"
-            aria-labelledby="newsletter-heading"
-            className="space-y-3"
-          >
-            <h4 className="text-base font-medium">
-              Subscribe to our newsletter
-            </h4>
-            {/* <SubscribeToNewsletterForm /> */}
           </section>
         </section>
         <section
