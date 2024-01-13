@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { FuelConsumptionChart } from '@/components/charts/fuel-consumption-chart'
+import { OptimizationEnergyChart } from '@/components/charts/optimization-energy-chart'
 import { PopulationChart } from '@/components/charts/population-chart'
 import { Callout } from '@/components/mdx/callout'
 import { CodeBlock } from '@/components/mdx/code-block'
@@ -175,6 +176,7 @@ const components = {
   Callout,
   PopulationChart: () => <PopulationChart />,
   FuelConsumptionChart: () => <FuelConsumptionChart />,
+  OptimizationEnergyChart: () => <OptimizationEnergyChart />,
 }
 
 interface MdxProps {

@@ -1,0 +1,68 @@
+---
+title: Practica 3
+description: Derivada de funciones y sus aplicaciones
+image: 'https://www.shutterstock.com/image-vector/mathematics-graphical-representation-derivative-integral-260nw-648442744.jpg'
+date: '2024-01-13'
+authors:
+  - edwin00821
+---
+
+## Objetivo
+
+El objetivo principal de esta pr ́actica es abordar y analizar el problema del consumo
+de energía en el hogar mediante la aplicación de conceptos matemáticos
+y técnicas de cálculo. En particular, nos enfocaremos en el desarrollo y optimización
+de una función promedio, $C(t)$, que representa el costo total de
+energía en función del tiempo de uso de electrodomésticos, $(t)$ y la cantidad
+de electrodomésticos en el hogar $E$. El propósito final es minimizar este costo
+total de energía, considerando restricciones específicas, y comprender cómo las
+variaciones en el tiempo de uso impactan en dicho costo.
+
+## Introducción
+
+El consumo eficiente de energía es una preocupación clave en la vida cotidiana, y
+entender cómo afecta el bolsillo de los hogares es esencial. En esta práctica,
+utilizaremos herramientas matemáticas para modelar el costo total de energía ${C(t)}$
+en relación con el tiempo de uso de los electrodomésticos y la cantidad de estos
+en el hogar. La función ${C(t)}$ se construye de manera que refleje el costo por
+unidad de tiempo de uso, permitiéndonos realizar análisis detallados sobre cómo
+minimizar este costo.
+
+Abordaremos la optimización del problema, buscando el valor óptimo de ${t}$ que minimiza
+${C(t)}$ con un número dado de electrodomésticos. Además, consideraremos restricciones
+prácticas, como limitar el tiempo de uso de electrodomésticos, ya que no es factible
+encenderlos después de cierta hora de la noche.
+
+El cálculo de derivadas nos permitirá entender las razones de cambio en el costo total
+de energía y cómo pequeñas variaciones en el tiempo de uso afectan esta variable. En resumen,
+esta práctica proporcionará una perspectiva analítica y matemática para abordar eficazmente el
+desafío de minimizar el costo total de energía en el hogar.
+
+## Desarrollo
+
+### Definición de Variables
+
+${\large E}$: El número de electrodomésticos
+
+${\large t}$: Tiempo de uso de electrodomésticos (hrs)
+
+### Función Objetivo
+
+$C(t)$: Costo total de energía.
+
+La función $C(t)$ es una función promedio que representa
+el costo por unidad de tiempo de uso de $E$ electrodomésticos. Puede desglosarse en:
+
+- $C(t) = \frac{E}{10} \left(\frac{8}{5} t^2 - t + 4\right)$
+- $\frac{dC(t)}{dt} = \frac{8E}{25} t - 1$
+- $0 = \frac{8E}{25} t - 1$
+- $\frac{8E}{25} t = 1$
+- $t = \frac{1 \times 25}{8E} = \frac{25}{8E}$
+- $t = 3.125 \times E \text{ hrs}$
+
+<OptimizationEnergyChart />
+
+## Referencias
+
+- Fernández, J. L. (s. f.). Continuidad de funciones. Fisicalab . Recuperado
+  [https://www.fisicalab.com/apartado/continuidad-funciones](https://www.fisicalab.com/apartado/continuidad-funciones)

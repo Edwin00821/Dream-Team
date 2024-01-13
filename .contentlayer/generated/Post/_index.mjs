@@ -2,5 +2,6 @@
 
 import practices__1FunctionTransformationMdx from './practices__1-function-transformation.mdx.json' assert { type: 'json' }
 import practices__2ContinuityOfFunctionsMdx from './practices__2-continuity-of-functions.mdx.json' assert { type: 'json' }
+import practices__3DerivativeOfFunctionsMdx from './practices__3-derivative-of-functions.mdx.json' assert { type: 'json' }
 
-export const allPosts = [practices__1FunctionTransformationMdx, practices__2ContinuityOfFunctionsMdx]
+export const allPosts = [practices__1FunctionTransformationMdx, practices__2ContinuityOfFunctionsMdx, practices__3DerivativeOfFunctionsMdx]
